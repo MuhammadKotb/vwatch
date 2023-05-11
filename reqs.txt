@@ -1,0 +1,6 @@
+opengl contexts -> libsdl
+codecs, containers, formats -> ffmpeg
+GUI -> ImGUI 
+
+CODECS -> H.264/AVC
+CONTAINERS -> MP4
