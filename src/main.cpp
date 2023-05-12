@@ -1,11 +1,9 @@
-#include "SDL_events.h"
-#include "SDL_render.h"
-#include <SDL2/SDL_video.h>
 #include <iostream>
-#include <vlc/libvlc.h>
-#include <libavcodec/avcodec.h>
 #include <SDL2/SDL.h>
-
+#include <SDL2/SDL_events.h>
+#include <SDL2/SDL_render.h>
+#include <SDL2/SDL_video.h>
+#include <imgui/imgui.h>
 int main(int argc, char* asrgv[]) {
 
 
