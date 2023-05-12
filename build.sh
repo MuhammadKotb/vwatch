@@ -1,1 +1,0 @@
-g++ src/*.cpp -o build/main
