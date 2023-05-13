@@ -1,4 +1,4 @@
-opengl contexts -> libsdl
+
 codecs, containers, formats -> ffmpeg
 GUI -> ImGUI 
 Rendering -> SDL2 & opengl3
