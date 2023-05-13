@@ -7,4 +7,4 @@ A Simple Video player from scratch (Somehow !!!???)
 
 
 # video player architecture example
-    https://media.licdn.com/dms/image/C4E12AQEvihrXwd9F6g/article-inline_image-shrink_1000_1488/0/1520523240886?e=1689206400&v=beta&t=YAaS4z8IVA-ePwejuv8m5nxTEVa8Fez3CpSikANqzCg
+    ![image](https://github.com/MuhammadElkotb/vwatch/assets/67494587/cecb831a-2d11-4b1b-b142-e798676a3882)
