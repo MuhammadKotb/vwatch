@@ -2,7 +2,8 @@
 A Simple Video player from scratch (Somehow !!!???)
 
 # third party
-    ffmpeg libavcodec
+    SDL2/Opengl3
+    libavcodec
     imgui
 
 
