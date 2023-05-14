@@ -1,16 +1,14 @@
-#include <SDL2/SDL_error.h>
-#include <SDL2/SDL_video.h>
 #include <iostream>
 #include <imgui/imgui.h>
 #include <imgui/imgui_impl_opengl3.h>
 #include <imgui/imgui_impl_sdl2.h>
+#include <Bootstrapper.h>
 extern "C" {
     #include <SDL2/SDL_opengl.h>
     #include <SDL2/SDL.h>
     #include <libavcodec/avcodec.h>
 }
 
-const char* glsl_version = "#version 130";
 
 
 int main(int argc, char* asrgv[]) {
@@ -25,21 +23,7 @@ int main(int argc, char* asrgv[]) {
  
     SDL_Window* window =  SDL_CreateWindow("hello", 300, 200, 800, 600, SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL);
 
-    SDL_GLContext gl_context = SDL_GL_CreateContext(window);
-    SDL_GL_MakeCurrent(window, gl_context);
-    
-    ImGui::CreateContext();
-    ImGuiIO& io = ImGui::GetIO(); (void)io;
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
-    
-    ImGui::StyleColorsDark();
-
-    ImGui_ImplSDL2_InitForOpenGL(window, gl_context);
-    if(!ImGui_ImplOpenGL3_Init(glsl_version)) {
-        return -1;
-    }
-
-    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
+    vw::createContext(window);
     bool run = true;
 
 
@@ -51,7 +35,6 @@ int main(int argc, char* asrgv[]) {
         SDL_Event event;
         while(SDL_PollEvent(&event)) {
             ImGui_ImplSDL2_ProcessEvent(&event);
-
             if(event.window.type == SDL_QUIT) {
                 run = false;
             }
@@ -61,27 +44,29 @@ int main(int argc, char* asrgv[]) {
         ImGui_ImplSDL2_NewFrame();
         ImGui::NewFrame();
 
-
         {
-            static float f = 0.0f;
-            static int counter = 0;
 
             ImGui::Begin("Hello, world!");
+
+            ImGui::SetCursorPos(ImVec2(8,681));
+            ImGui::BeginChild(17, ImVec2(1322,49), true);
+
+            ImGui::EndChild();
+
+            ImGui::SetCursorPos(ImVec2(21.5,694.5));
+            ImGui::Button("play", ImVec2(36,19)); //remove size argument (ImVec2) to auto-resize
+
+            ImGui::SetCursorPos(ImVec2(68.5,694.5));
+            ImGui::Button("stop", ImVec2(36,19)); //remove size argument (ImVec2) to auto-resize
             ImGui::End();
         }
 
         ImGui::Render();
-        glViewport(0, 0, (int)io.DisplaySize.x, (int)io.DisplaySize.y);
         glClearColor(1, 1, 1, 1);
         glClear(GL_COLOR_BUFFER_BIT);
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         SDL_GL_SwapWindow(window);
-
-        // SDL_RenderClear(renderer);
-        // SDL_SetRenderDrawColor(renderer, 255, 255, 255, 0);
-        // SDL_RenderPresent(renderer);
     }
-    SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
 
