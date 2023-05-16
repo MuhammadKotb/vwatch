@@ -1,4 +1,4 @@
-SOURCES:=src/*.cpp
+SOURCES:=src/*.cpp src/ui/*.cpp
 MAKEFLAGS += --no-print-directory
 CFLAGS+= -std=c++20
 CFLAGS+= -D_REENTRANT  -I./include/ 

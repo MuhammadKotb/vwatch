@@ -9,5 +9,6 @@ extern "C" {
 namespace vw {
     int createContext(SDL_Window* window);
     int destroyContext();
+    void setupGl();
 }
 
